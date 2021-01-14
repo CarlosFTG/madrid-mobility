@@ -3017,7 +3017,8 @@ class BikesLayerService {
         this.authService = authService;
         this.bikesOut = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](null);
         this.bikes$ = this.bikesOut.asObservable();
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
+        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
+        this.REST_API_SERVER = "http://localhost:8081/api/EMTServices/";
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_6__["default"]();
         //bikeStations: any[] = new Array;
         this.bikeStationsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_5__["default"];
@@ -3148,8 +3149,7 @@ class BusesService {
         this.httpClient = httpClient;
         this.authService = authService;
         this.mapService = mapService;
-        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
-        this.REST_API_SERVER = "http://localhost:8081/api/buses/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
         this.userPosition = { 'lat': null, 'lng': null };
         this.busesListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.notifyBuses$ = this.busesListOut.asObservable();
