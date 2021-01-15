@@ -4338,6 +4338,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class UserService {
+    //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
     constructor(httpClient, mapService, infoCardService, dialog, styleService) {
         this.httpClient = httpClient;
         this.mapService = mapService;
@@ -4348,8 +4349,7 @@ class UserService {
         this.assets_base = 'assets/img/';
         this.userPositionOut = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](null);
         this.userPosition$ = this.userPositionOut.asObservable();
-        //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
+        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
         this.getUserPosition();
     }
     notifyUserPosition(userPosition) {

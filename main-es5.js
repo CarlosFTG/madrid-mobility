@@ -9952,6 +9952,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var UserService =
     /*#__PURE__*/
     function () {
+      //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
       function UserService(httpClient, mapService, infoCardService, dialog, styleService) {
         _classCallCheck(this, UserService);
 
@@ -9963,9 +9964,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_5__["default"]();
         this.assets_base = 'assets/img/';
         this.userPositionOut = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](null);
-        this.userPosition$ = this.userPositionOut.asObservable(); //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
-
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
+        this.userPosition$ = this.userPositionOut.asObservable();
+        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
         this.getUserPosition();
       }
 
