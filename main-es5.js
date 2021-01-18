@@ -8409,6 +8409,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function createBikeStationsFeatures(bikeOrSlot) {
           var _this16 = this;
 
+          this.bikeStationsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_5__["default"]();
           this.response.forEach(function (bikeStation) {
             var splitCoords = bikeStation.pointsList.coordinates.split(' ');
             var formatCoords = 'POINT(' + splitCoords[0] + ' ' + splitCoords[1] + " 216.7" + ')';

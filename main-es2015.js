@@ -3260,6 +3260,7 @@ class BikesLayerService {
         }
     }
     createBikeStationsFeatures(bikeOrSlot) {
+        this.bikeStationsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_5__["default"];
         this.response.forEach(bikeStation => {
             let splitCoords = bikeStation.pointsList.coordinates.split(' ');
             let formatCoords = 'POINT(' + splitCoords[0] + ' ' + splitCoords[1] + " 216.7" + ')';
