@@ -7458,9 +7458,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function InfoCardService(httpClient) {
         _classCallCheck(this, InfoCardService);
 
-        this.httpClient = httpClient; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
+        this.httpClient = httpClient;
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/"; //private REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
 
-        this.REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
         this.closetsStationsListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.iconOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.zoomToOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
@@ -8482,9 +8482,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, BikeAccidentService);
 
         this.httpClient = httpClient;
-        this.mapService = mapService; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
-
-        this.REST_API_SERVER = "http://localhost:8081/api/bikes/EMTServices/";
+        this.mapService = mapService;
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
         this.bikeAccidentsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_1__["default"]();
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_2__["default"]();
         this.getBikeAccidents();
@@ -8924,9 +8923,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.httpClient = httpClient;
         this.authService = authService;
-        this.mapService = mapService; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
-
-        this.REST_API_SERVER = "http://localhost:8081/api/buses/EMTServices/";
+        this.mapService = mapService;
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
         this.userPosition = {
           'lat': null,
           'lng': null
@@ -9131,8 +9129,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getDistricts() {
           var _this21 = this;
 
-          //this.httpClient.get('https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/getDistricts').subscribe(
-          this.httpClient.get('http://localhost:8081/api/urban/EMTServices/getDistricts').subscribe(function (res) {
+          this.httpClient.get('https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/getDistricts').subscribe( // this.httpClient.get('http://localhost:8081/api/urban/EMTServices/getDistricts').subscribe(
+          function (res) {
             _this21.response = res;
 
             _this21.createDistrictsFeatures();
@@ -10633,7 +10631,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var UserService =
     /*#__PURE__*/
     function () {
-      //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
       function UserService(httpClient, mapService, infoCardService, dialog, styleService) {
         _classCallCheck(this, UserService);
 
@@ -10645,9 +10642,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_6__["default"]();
         this.assets_base = 'assets/img/';
         this.userPositionOut = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](null);
-        this.userPosition$ = this.userPositionOut.asObservable();
-        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
+        this.userPosition$ = this.userPositionOut.asObservable(); //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
+
         this.REST_API_SERVER_URBAN = "http://localhost:8081/api/urban/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
         this.getUserPosition();
       } // notifyUserPosition(userPosition) {
       //   this.userPositionOut.next(userPosition)
