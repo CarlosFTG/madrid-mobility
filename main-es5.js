@@ -8820,11 +8820,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.userPosition = {
           'lat': null,
           'lng': null
-        };
-        var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["interval"])(30000);
-        this.subscription = source.subscribe(function (val) {
-          return _this17.getBikeStations();
-        });
+        }; //const source = interval(300000);
+        //this.subscription = source.subscribe(val => this.getBikeStations());
+
         this.mapService.sendUserPositionToInfoCard$.subscribe(function (data) {
           if (data != null) {
             if (typeof data === 'object') {

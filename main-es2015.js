@@ -3414,8 +3414,8 @@ class BikesLayerService {
         this.bikeStationsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_5__["default"];
         this.selectedBikeStationCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_5__["default"];
         this.userPosition = { 'lat': null, 'lng': null };
-        const source = Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["interval"])(30000);
-        this.subscription = source.subscribe(val => this.getBikeStations());
+        //const source = interval(300000);
+        //this.subscription = source.subscribe(val => this.getBikeStations());
         this.mapService.sendUserPositionToInfoCard$.subscribe(data => {
             if (data != null) {
                 if (typeof (data) === 'object') {
