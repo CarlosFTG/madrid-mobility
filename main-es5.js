@@ -2637,12 +2637,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AuthService =
     /*#__PURE__*/
     function () {
+      //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
       function AuthService(httpClient) {
         _classCallCheck(this, AuthService);
 
-        this.httpClient = httpClient; //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
-
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
+        this.httpClient = httpClient;
+        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
         this.emtTokenOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.emtToken$ = this.emtTokenOut.asObservable();
         this.userTokenOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
@@ -2650,6 +2650,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(AuthService, [{
+        key: "handleError",
+        value: function handleError(error) {
+          var errorMessage = 'Unknown error!';
+
+          if (error.error instanceof ErrorEvent) {
+            // Client-side errors
+            errorMessage = "Error: ".concat(error.error.message);
+          } else {
+            // Server-side errors
+            errorMessage = "Error Code: ".concat(error.status, "\nMessage: ").concat(error.message);
+          }
+
+          window.alert(errorMessage);
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["throwError"])(errorMessage);
+        }
+      }, {
         key: "doLogin",
         value: function doLogin() {
           var _this = this;
@@ -2691,8 +2707,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "registerUser",
-        value: function registerUser(registerParams) {
-          this.httpClient.post('http://localhost:8082/api/register', registerParams).subscribe(function (res) {
+        value: function registerUser(userBean) {
+          this.httpClient.post('http://localhost:8081/api/auth/EMTServices/registerUser', userBean).subscribe(function (res) {
             console.log(res);
           }, function (err) {
             console.log(err);
@@ -7503,9 +7519,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function InfoCardService(httpClient) {
         _classCallCheck(this, InfoCardService);
 
-        this.httpClient = httpClient;
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/"; //private REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
+        this.httpClient = httpClient; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
 
+        this.REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
         this.closetsStationsListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.iconOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.zoomToOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
@@ -8300,7 +8316,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     });
 
     function View_LegendComponent_1(_l) {
-      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 16, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 15, "mat-tab-group", [["class", "container legend-container mat-tab-group"]], [[2, "mat-tab-group-dynamic-height", null], [2, "mat-tab-group-inverted-header", null]], null, null, _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_MatTabGroup_0"], _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_MatTabGroup"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 3325952, null, 1, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MatTabGroup"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], [2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MAT_TABS_CONFIG"]], [2, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["ANIMATION_MODULE_TYPE"]]], null, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 1, {
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 22, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 21, "mat-tab-group", [["class", "container legend-container mat-tab-group"]], [[2, "mat-tab-group-dynamic-height", null], [2, "mat-tab-group-inverted-header", null]], null, null, _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_MatTabGroup_0"], _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_MatTabGroup"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 3325952, null, 1, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MatTabGroup"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], [2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MAT_TABS_CONFIG"]], [2, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["ANIMATION_MODULE_TYPE"]]], null, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 1, {
         _allTabs: 1
       }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵprd"](2048, null, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MAT_TAB_GROUP"], null, [_angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MatTabGroup"]]), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](5, 16777216, null, null, 5, "mat-tab", [["label", "BiciMad"]], null, null, null, _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_MatTab_0"], _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_MatTab"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](6, 770048, [[1, 4]], 2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MatTab"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], [2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MAT_TAB_GROUP"]]], {
         textLabel: [0, "textLabel"]
@@ -8314,7 +8330,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         templateLabel: 0
       }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](335544320, 5, {
         _explicitContent: 0
-      }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](15, 0, null, 0, 1, "app-buses-legend", [], null, null, null, _buses_legend_buses_legend_component_ngfactory__WEBPACK_IMPORTED_MODULE_10__["View_BusesLegendComponent_0"], _buses_legend_buses_legend_component_ngfactory__WEBPACK_IMPORTED_MODULE_10__["RenderType_BusesLegendComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](16, 114688, null, 0, _buses_legend_buses_legend_component__WEBPACK_IMPORTED_MODULE_11__["BusesLegendComponent"], [_services_buses_service__WEBPACK_IMPORTED_MODULE_12__["BusesService"]], null, null)], function (_ck, _v) {
+      }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](15, 0, null, 0, 1, "app-buses-legend", [], null, null, null, _buses_legend_buses_legend_component_ngfactory__WEBPACK_IMPORTED_MODULE_10__["View_BusesLegendComponent_0"], _buses_legend_buses_legend_component_ngfactory__WEBPACK_IMPORTED_MODULE_10__["RenderType_BusesLegendComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](16, 114688, null, 0, _buses_legend_buses_legend_component__WEBPACK_IMPORTED_MODULE_11__["BusesLegendComponent"], [_services_buses_service__WEBPACK_IMPORTED_MODULE_12__["BusesService"]], null, null), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](17, 16777216, null, null, 5, "mat-tab", [["label", "Parking"]], null, null, null, _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_MatTab_0"], _node_modules_angular_material_tabs_index_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_MatTab"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](18, 770048, [[1, 4]], 2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MatTab"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], [2, _angular_material_tabs__WEBPACK_IMPORTED_MODULE_3__["MAT_TAB_GROUP"]]], {
+        textLabel: [0, "textLabel"]
+      }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](603979776, 6, {
+        templateLabel: 0
+      }), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵqud"](335544320, 7, {
+        _explicitContent: 0
+      }), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](21, 0, null, 0, 1, "p", [], null, [[null, "click"]], function (_v, en, $event) {
+        var ad = true;
+        var _co = _v.component;
+
+        if ("click" === en) {
+          var pd_0 = _co.getFreePlaces() !== false;
+          ad = pd_0 && ad;
+        }
+
+        return ad;
+      }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, ["test"]))], function (_ck, _v) {
         var currVal_2 = "BiciMad";
 
         _ck(_v, 6, 0, currVal_2);
@@ -8326,6 +8358,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _ck(_v, 12, 0, currVal_3);
 
         _ck(_v, 16, 0);
+
+        var currVal_4 = "Parking";
+
+        _ck(_v, 18, 0, currVal_4);
       }, function (_ck, _v) {
         var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 2).dynamicHeight;
 
@@ -8609,8 +8645,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, BikeAccidentService);
 
         this.httpClient = httpClient;
-        this.mapService = mapService;
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
+        this.mapService = mapService; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
+
+        this.REST_API_SERVER = "http://localhost:8081/api/bikes/EMTServices/";
         this.bikeAccidentsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_1__["default"]();
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_2__["default"]();
         this.getBikeAccidents();
@@ -8805,6 +8842,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           'lat': null,
           'lng': null
         };
+        var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["interval"])(30000);
+        this.subscription = source.subscribe(function (val) {
+          return _this17.getBikeStations();
+        });
         this.mapService.sendUserPositionToInfoCard$.subscribe(function (data) {
           if (data != null) {
             if (typeof data === 'object') {
@@ -9050,8 +9091,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.httpClient = httpClient;
         this.authService = authService;
-        this.mapService = mapService;
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
+        this.mapService = mapService; //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
+
+        this.REST_API_SERVER = "http://localhost:8081/api/buses/EMTServices/";
         this.userPosition = {
           'lat': null,
           'lng': null
@@ -9256,8 +9298,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getDistricts() {
           var _this23 = this;
 
-          this.httpClient.get('https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/getDistricts').subscribe( // this.httpClient.get('http://localhost:8081/api/urban/EMTServices/getDistricts').subscribe(
-          function (res) {
+          //this.httpClient.get('https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/getDistricts').subscribe(
+          this.httpClient.get('http://localhost:8081/api/urban/EMTServices/getDistricts').subscribe(function (res) {
             _this23.response = res;
 
             _this23.createDistrictsFeatures();
@@ -10044,9 +10086,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.streetsStyleService = streetsStyleService;
         this.streetsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_6__["default"]();
         this.streetsList = new Array();
-        this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_7__["default"]();
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/"; //private REST_API_SERVER = "http://localhost:8081/api/urban/EMTServices/";
+        this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_7__["default"](); //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/";
 
+        this.REST_API_SERVER = "http://localhost:8081/api/urban/EMTServices/";
         this.streetsListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.streetsList$ = this.streetsListOut.asObservable();
         this.getStreets().subscribe(function (data) {
@@ -11109,6 +11151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var UserService =
     /*#__PURE__*/
     function () {
+      //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
       function UserService(httpClient, mapService, infoCardService, dialog, stylePointsFeaturesService) {
         _classCallCheck(this, UserService);
 
@@ -11120,10 +11163,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_6__["default"]();
         this.assets_base = 'assets/img/';
         this.userPositionOut = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](null);
-        this.userPosition$ = this.userPositionOut.asObservable(); //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
-
+        this.userPosition$ = this.userPositionOut.asObservable();
+        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
         this.REST_API_SERVER_URBAN = "http://localhost:8081/api/urban/EMTServices/";
-        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
         this.getUserPosition();
       } // notifyUserPosition(userPosition) {
       //   this.userPositionOut.next(userPosition)
@@ -11558,7 +11600,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     });
 
     function View_UpperBarComponent_1(_l) {
-      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 2, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 1, "div", [["style", "padding: 2%;"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, [" MadridMobility "]))], null, null);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 4, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 3, "div", [["style", "padding: 2%;"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, [" MadridMobility "])), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](3, 0, null, null, 1, "a", [["role", "button"]], null, [[null, "click"]], function (_v, en, $event) {
+        var ad = true;
+        var _co = _v.component;
+
+        if ("click" === en) {
+          var pd_0 = _co.openLogin() !== false;
+          ad = pd_0 && ad;
+        }
+
+        return ad;
+      }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, ["login"]))], null, null);
     }
 
     function View_UpperBarComponent_2(_l) {
