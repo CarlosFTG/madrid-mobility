@@ -798,10 +798,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class AuthService {
-    //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
+        //private REST_API_SERVER = "http://localhost:8081/api/auth/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/auth/EMTServices/";
         this.emtTokenOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.emtToken$ = this.emtTokenOut.asObservable();
         this.userTokenOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
@@ -2824,8 +2824,8 @@ __webpack_require__.r(__webpack_exports__);
 class InfoCardService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
-        this.REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/EMTServices/";
+        //private REST_API_SERVER = "https://localhost:8081/api/bikes/EMTServices/";
         this.closetsStationsListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.iconOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.zoomToOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
@@ -3314,8 +3314,7 @@ class BikeAccidentService {
     constructor(httpClient, mapService) {
         this.httpClient = httpClient;
         this.mapService = mapService;
-        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
-        this.REST_API_SERVER = "http://localhost:8081/api/bikes/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/bikes/EMTServices/";
         this.bikeAccidentsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_1__["default"];
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_2__["default"]();
         this.getBikeAccidents();
@@ -3586,8 +3585,7 @@ class BusesService {
         this.httpClient = httpClient;
         this.authService = authService;
         this.mapService = mapService;
-        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
-        this.REST_API_SERVER = "http://localhost:8081/api/buses/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/buses/EMTServices/";
         this.userPosition = { 'lat': null, 'lng': null };
         this.busesListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.notifyBuses$ = this.busesListOut.asObservable();
@@ -4153,8 +4151,8 @@ class StreetsService {
         this.streetsCollection = new ol_Collection__WEBPACK_IMPORTED_MODULE_6__["default"];
         this.streetsList = new Array;
         this.format = new ol_format_WKT__WEBPACK_IMPORTED_MODULE_7__["default"]();
-        //private REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/";
-        this.REST_API_SERVER = "http://localhost:8081/api/urban/EMTServices/";
+        this.REST_API_SERVER = "https://floating-reef-24535.herokuapp.com/api/urban/EMTServices/";
+        //private REST_API_SERVER = "http://localhost:8081/api/urban/EMTServices/";
         this.streetsListOut = new rxjs__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](null);
         this.streetsList$ = this.streetsListOut.asObservable();
         this.getStreets().subscribe(data => {
